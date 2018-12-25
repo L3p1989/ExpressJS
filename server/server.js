@@ -1,4 +1,6 @@
 const express = require("express"); //import express
+const path = require("path");
+const fs = require("fs");
 
 let app = express(); //call express with app
 
