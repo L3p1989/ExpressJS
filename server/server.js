@@ -23,9 +23,9 @@ app.post("/formsubmission", (req, res) => {
   let formData = {
     firstName: firstName,
     lastName: lastName
-  };
-  let formJSON = JSON.stringify(formData);
-  fs.appendFileSync("form-submission.JSON", formJSON);
+  }; //adds submitted firstName and lastName to formData
+  let formJSON = JSON.stringify(formData); //converts formData to a JSON object
+  fs.appendFileSync("form-submission.JSON", formJSON); //appends submission to form-submission
 });
 
 app.use(express.static(path.join(__dirname, "../public"))); //tells `express` to serve all files in the public directory
