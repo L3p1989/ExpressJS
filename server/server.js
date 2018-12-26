@@ -34,19 +34,19 @@ app.post("/formsubmission", (req, res) => {
   let formData = {
     firstName,
     lastName
-  };
+  }; //adds submitted firstName and lastName to formData
   fs.readFile(path.join(__dirname, "../form-submission.json"), (err, data) => {
-    if (err) console.log(err);
-    let parsedData = JSON.parse(data);
-    parsedData.push(formData);
+    if (err) console.log(err); //log errors
+    let parsedData = JSON.parse(data); //data that is parsed into JSON is called parsedData
+    parsedData.push(formData); //pushes parsedData into array
     fs.writeFile(
       path.join(__dirname, "../form-submission.json"),
       JSON.stringify(parsedData),
       err => {
         if (err) console.log(err);
-        res.send(parsedData);
+        res.send(parsedData); //displays parsedData on screen
       }
-    );
+    ); //writes submission to form-submission.json
   });
 });
 
